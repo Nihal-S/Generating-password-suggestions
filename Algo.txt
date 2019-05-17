@@ -1,0 +1,116 @@
+Algorithm generate_password (String Password)
+{
+//Input: Password (String) Which needs suggestions
+//Output: Suggested passwords are printed
+
+n <- length (Password)
+lower,upper,digits,special_symbols,need <- 0
+
+
+//checking for lowercase ,uppercase, digits, special_symbols
+
+for i<-0 to n
+{   if (Password contains small letters)
+    {
+        lower <- 1
+    }
+
+    if (Password contains upper letters)
+    {
+        upper <- 1
+    }
+
+    if (Password contains digits)
+    {
+        digits <- 1
+    }
+    
+    if (Password contains special_symbols)
+    {
+        special_symbols <- 1
+    }
+}
+
+if (Password meets all the required constraints)
+{
+    print "Password is strong"
+    return
+}
+
+else
+{
+    print "The suggested passwords are:-"
+}
+
+// to get 10 passwords
+
+for i <- 0 to 10
+{
+    suggested_password <- suggester(lower,upper,digits,special_symbols)
+    //Assuming the default number of minimum characters is 8
+    need <- 8 - length(suggested_password)
+
+    if (number of characters are less than 8 )
+    {
+        suggested_password <- add_more_characters(suggested_password,need)
+    }
+    print suggested Password
+}
+}
+
+
+
+String suggester(int lower,int upper,int digits,int special_symbols,Password)
+{
+    //Input: flags and passwords
+    //Output: suggested_password
+
+    numbers <- array of all digits
+    lowercase <- array of all lower alphabets
+    uppercase <- array of all upper alphabets
+    special_characters <- array of all special symbols
+
+    int position <- 0
+
+    // Check for the flags and insert a random character of its type @ random position
+
+    if (Password doesnt have lower case )
+    {
+        position <- random integer of between 0 and 26
+        insert a random lowercase charatcer in that position in Password 
+    }
+
+    if (Password doesnt have upper case )
+    {
+        position <- random integer of between 0 and 26
+        insert a random uppercase charatcer in that position in Password 
+    }
+    
+    if (Password doesnt have a digit)
+    {
+        position <- random integer of between 0 and 10
+        insert a random number charatcer in that position in Password 
+    }
+    
+    if (Password doesnt have special_character)
+    {
+        position <- random integer of between 0 and 7
+        insert a random special_character charatcer in that position in Password 
+    }
+
+    return Password
+}
+
+
+//  If the suggester fails to give 8 number of characters than we have to add some characters to it
+String add_more_characters(String Password, int need)
+{
+    position <- 0
+    // put anyone of lowercase characters in the Password
+    lowercase <- array of all lower case characters
+    for i <- 0 to need 
+    {
+        insert random lowercase alphabets to random position on Password
+    }
+    return Password
+}
